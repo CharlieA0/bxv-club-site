@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Concept Coding - Charlie Vorbach</title>
+		<link rel="stylesheet" type="text/css" href="newlayoutstyle.css">
+	</head>
+	<body>
+		<!--tile of website-->
+		<div class="header">
+			<h1>Charlie Vorbach Project Site</h2>
+			<hr>
+		</div>
+		
+		<!--Links for various locations-->
+		<div class="nav_panel">
+			<div class="inner_nav">
+				<a href="index.html">Home</a>
+			</div>
+			<div class="inner_nav">
+				<a href="NewAbout.html">About</a>
+			</div>
+			<div class="inner_nav">
+				<a href="NewContactMe.html">Contact Me</a>
+			</div>
+		</div>
+		<!-- Content -->		
+		<div class="factor_info">
+			<h2>Slow Factorizing Algorithm</h2>
+			<h3>Optimized Trial Division</h3>
+			<p>This algorithm uses trial division with a few improvements. That means it given a number N it divides N by all of N's possible factors. Then it checks if there is any remainder. If there is none, then we confirm that the number and N divided by that number are factors of N. It records these factors.</p>
+			<p>Using modular division, the kindergarten kind where you only care about the remainder after division, you might think that this algorithm would run in linear time. If we had to check every number from 2 to N, it would be. Thinking about the definition of a factor however, we can greatly improve the runtime. If N = p * q where p and q are different factors of N, then either p or q must be less than the square root of N. So instead of checking all the numbers from 2 to N, we only have to check the numbers from 2 to the square root of N.
+			</p>
+			<p>This optimization makes the overall runtime sqrt(N). Pretty fast, but not nearly so much as some other algorithms. Anyway, try it yourself below.
+			</p>
+			<div id="trial_util">
+				<h3>Trial Division Implementation</h3>
+				<span>Please enter a number between two and a billion. (One is not defined relating to factors)</span>
+				<div id="trial_mech">
+					<input id="t_numb" type="number">
+					<button type="button" onclick="trialFunction()">Try it</button>
+					<div id="t_check">Ready...</div>
+					<div id="t_results"></div>
+					<script src="trialFunction.js"></script>
+				</div>
+			</div>
+		</div>
+
+	</body>	
+</html>

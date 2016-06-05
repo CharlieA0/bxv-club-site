@@ -1,0 +1,69 @@
+<?php
+
+require_once('../class.phpmailer.php');
+
+  $email = "bxvwebmaster@gmail.com" ;
+  $message = "TESTING 1, 2, 3 ...";
+
+  // here we use the php mail function
+  // to send an email to:
+  // you@yourdomain.com
+  
+  
+  echo "Here";
+  if (!mail( "bxvwebmaster@gmail.com", "Testing",$message, "From: $email" )) {
+  	echo "Failure";
+  }
+
+/*Send Email with attached file
+	require_once("libs/PHPMailer/class.phpmailer.php");
+	
+	$mail = new PHPMailer;
+
+	//Enable SMTP debugging. 
+	$mail->SMTPDebug = 3;                               
+
+	//Set PHPMailer to use SMTP.
+	$mail->isSMTP();       
+
+	//Set SMTP host name                          
+	$mail->Host = "smtp.gmail.com";
+
+	//Set this to true if SMTP host requires authentication to send email
+	$mail->SMTPAuth = true;                          
+	
+	//Provide username and password     
+	$mail->Username = "bxvwebmaster@gmail.com";                 
+	$mail->Password = "T6uve8FeV8OxxiSd/Y3EemAOQx0Jy"; //Strong Password                           
+
+	//If SMTP requires TLS encryption then set it
+	$mail->SMTPSecure = "tls";                           
+
+	//Set TCP port to connect to 
+	$mail->Port = 587;                           
+
+	$mail->From = "webmaster@bxvcodes.club";
+	$mail->FromName = "Webmaster";
+
+	$mail->addAddress("bxvwebmaster@gmail.com", "Bronxville Webmaster");
+	
+	//Provide file path and name of the attachments
+	$mail->addAttachment("test.txt", "test.txt");        
+
+	$mail->Subject = "Testing 123";
+	$mail->Body = "This is a test";
+	
+	if(!$mail->send()) 
+	{
+	    echo "Mailer Error: " . $mail->ErrorInfo;
+	} 
+	else 
+	{
+	  echo "Message has been sent successfully";
+	}
+	
+	if($mail->Send()){
+		echo "go";
+	}*/
+	
+?>

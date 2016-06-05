@@ -1,0 +1,7 @@
+1. Added more extensive comments to HTML
+2. Created Version Manager Project*
+3. Made Version Manager Project Tile
+4. Created Version Manager Write Up
+
+* Uses PHP and so only works on server. 
+

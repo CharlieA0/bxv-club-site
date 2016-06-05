@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<!-- Links to stylesheets -->
+		<link rel="stylesheet" type="text/css" href="../../stylesheets/StandardStyling.css">
+		<link rel="stylesheet" type="text/css" href="UpdaterStyle.css">
+		
+		<!--Page's title-->
+		<title>Bronxville Programing Club</title>
+	</head>
+
+	<body>
+	
+		<!-- The colored header bar at the top of the page-->
+		<header>
+			<h1>BXV Programing Club Project Site</h1>
+		</header>
+		
+		<!-- Narrow panel on left containing links to frequently visited pages --> 
+		<nav>
+			<h3 id="nav_title">Navigation</h3><hr>
+			
+			<a href="../../Title.html">Home</a><br>
+			<a href="../../Projects.html">Projects</a><br>
+			<a href="../../About.html">About</a><br>
+			<a href="../../Bios.html">Bios</a><br>
+			<a href="../../References.html">Resources</a><br>
+			<a href="SiteUpdater.html">Site Updates</a>
+			
+		</nav>	
+		
+		<!-- Thick panel on right containing the page's content -->
+		<div id="panel">
+		
+			<!-- The text at the top of the page -->
+			<h2>Project Site Version Manager</h2>
+			
+			<p>
+			This tool allows you to submit new versions of this website to the Webmaster. Currently this Version Manager can only accept folders in zip form, but we are working on adding folder 
+			upload functionality. 
+			</p>
+			
+			<p>
+			This site is an Open Source project licensed under the <a href="http://opensource.org/licenses/gpl-2.0.php">GNU General Public License</a>. The Club will review any major changes, but 
+			our general policy on adding features/revisions is the more the merrier.
+			</p>
+			
+			
+			
+			<h4> Upload New Version?</h4>
+			
+			<!-- A form for the User to fill in info about the site's new version -->
+			<div id="form_wrapper">
+				<form action="Upload.php" method="POST" enctype="multipart/form-data">
+																	
+					Upload: 		<input type="file" name="uploadedFile"> 					<br><br>	<!--Each input is a different field (the <br>'s put each one on a new line)-->
+					Author(s):	<input type="text" name="authors">							<br><br>
+					Comment:															<br>
+								<textarea name="comment" rows="5" cols="150"></textarea>		<br><br>
+					Password:		<input type="text" name="password">						<br><br>
+					
+					<input type="submit" value="Upload File" name="submit">							<!--Creates a Submission button-->
+				</form>
+			</div>
+			
+			
+			
+			<br>
+			<br>
+			
+			
+			
+			<h4>Revision History*</h4>
+			
+			<!-- A table to display the site's history in an orderly way-->
+			<table>
+			
+				<tr>													<!-- <tr> indicates a table row, <th> indicates a table heading (A cell that is bold and centered) -->
+					<th>				<b>Version</b>	</th>
+					<th>							</th>				<!-- <td> indicates a table cell -->
+					<th>							</th>
+					<th class="notes">	<b>Notes</b>	</th>
+				</tr>
+				<tr>
+					<td>				Version 3															</td>
+					<td>				<a href="../../files/site_versions/Sitev3/Title.html">View</a> 				</td>
+					<td>				<a href="../../files/site_versions/Sitev3.zip">Download</a>					</td>
+					<td class="notes">	Added Tiles to Project Page. Created Subfolder for pages on Club's Projects	</td>
+				</tr>
+				<tr>
+					<td>				Version 2															</td>
+					<td>				<a href="../../files/site_versions/Sitev2/Title.html">View</a>				</td>
+					<td>				<a href="../../files/site_versions/Sitev2.zip">Download</a>					</td>
+					<td class="notes">	Added Reference and Project Pages. Refined Standard Page Layout.				</td>
+				</tr>
+				<tr>
+					<td>				Version 1															</td>
+					<td>				<a href="../../files/site_versions/Sitev1/Titlev2.html">View</a>				</td>
+					<td>				<a href="../../files/site_versions/Sitev1.zip">Download</a>					</td>
+					<td class="notes">	Created Basic Layout of Title Page.									</td>
+				</tr>
+				
+			</table>
+			
+			
+			<!--The Italic Note at the bottom of the page-->
+			<p>*<i>Please note this tool is present but disabled in historical versions of this site to minimize memory usage.</i></p>  
+		
+		</div>
+		
+	</body>
+
+</html>

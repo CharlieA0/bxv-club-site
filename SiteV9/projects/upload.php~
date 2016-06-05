@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<link rel="stylesheet" type="text/css" href="../stylesheets/StandardStyling.css">
+		<link rel="stylesheet" type="text/css" href="../stylesheets/UpdaterStyle.css">
+		
+		<title>Bronxville Programing Club</title>
+	</head>
+
+	<body>
+		<header>
+			<h1>BXV Programing Club Project Site</h1>
+		</header>
+		
+		<nav>
+			<h3 id="nav_title">Navigation</h3><hr>
+			<a href="../Title.html">Home</a><br>
+			<a href="../Projects.html">Projects</a><br>
+			<a href="">About</a><br>
+			<a href="">Bios</a><br>
+			<a href="../References.html">Resources</a><br>
+			<a href="">Day App</a><br>
+			<a href="">Cafe App</a><br>
+		</nav>	
+		
+		<div id="panel">
+		
+			<h2>Project Site Version Manager</h2>
+			
+			<p>
+			This tool allows you to submit new versions of this website to the Webmaster. Currently this Version Manager can only accept folders in zip form, but we are working on adding folder 
+			upload functionality. 
+			</p>
+			
+			<p>
+			Our general policy on adding features/revisions is the more the merrier. That said the Club will review any major changes.
+			Also, please know that this site is an Open Source project and licensed under the <a href="http://opensource.org/licenses/gpl-2.0.php">GNU General Public License</a>.
+			</p>
+			
+			<h4> Upload New Version?</h4>
+			
+			<div id="return_message">
+				<?php
+				
+				//Global Parameters
+				$uploadPassword = "3lit3";										//Password required to upload files
+				
+				$target_dir = "uploads/";										//Where to put file
+				$target_file = $target_dir . basename($_FILES["uploadedFile"]["name"]);	//Remember File Name
+				$fileType = pathinfo($target_file,PATHINFO_EXTENSION);					//Remember its file extension
+				
+				$maxAttachmentSize = 24500000;									//File Size limit
+				
+				//Check if upload password is correct
+				if($_POST["password"] != "3lit3") {
+					echo "<span id='error'> Sorry that password isn't correct. Please check the Facebook group for the most recent one </span>"; 
+				} 
+				
+				//Check if File is actually attached
+				else if (empty($_FILES["uploadedFile"] ["name"])) {
+					echo "<span id='error'> Please pick a file to upload </span>";
+				}
+				
+				//Check that file isn't to large
+				else if ($_FILES["uploadedFile"] ["size"] >= 24000000) {
+					echo "<span id='error'>Sorry the max upload size is 24.5 mb. Let the webmaster know if you have something bigger and better </span>>";
+				}				
+				
+				//Check that file is compressed
+				else if ($fileType != "zip") {
+					echo "<span id='error'>Sorry, you have to compress your file into a .zip before you can upload it. Check out the tutorial on this under Resources. </span>";
+				}
+				
+				//If everything is okay, then accept the file
+				else {
+				
+					//Mail Function
+					submitVersion($_POST["comment"], $_POST["authors"], $_FILES["uploadedFile"] ["tmp_name"]);
+				
+				}
+				
+				function submitVersion($comment, $authors, $path) {
+					//require("libs/PHPMailer/class.phpmailer.php");
+					require("libs/PHPMailer/PHPMailerAutoload.php");
+					
+					$mail = new PHPMailer();
+						
+					$mail->IsSMTP();								//Use GMAIL as mail server
+					$mail->Host	= "smtp.gmail.com";
+						
+					//$mail->SMTPDebug  = 1;                     		// enables SMTP debug information (for testing)
+					$mail->SMTPAuth   = true;                 			// enable SMTP authentication
+						
+					$mail->SMTPSecure = "ssl"; 
+					$mail->Port       = 465;                   			// set the SMTP port for the GMAIL server
+					
+					$mail->Username   = "bxvwebmaster@gmail.com";  		// GMAIL username
+					$mail->Password   = "T6uve8FeV8OxxiSd/Y3EemAOQx0Jy";   // Strong GMAIL password
+							
+					$mail->From	= "webmaster@bxvcodes.club";
+					$mail->AddAddress("bxvwebmaster@gmail.com");
+							
+					$mail->Subject = "New Site Version";
+					
+					if(empty($comment)) {							//Make Sure message has a body (so it doesn't fail)
+						$comment = "No Comment Provided";
+					}
+					
+					$mail->Body	= $comment . "\n\n By: " . $authors;
+					
+					$mail->addAttachment($path);
+							
+					if(!$mail->Send()) {
+						echo "<div id='message'> <span id='success'> Sorry there was an error. </span>";
+						echo "Error: " . $mail -> ErrorInfo;
+						
+					} 
+					
+					else {
+							echo "<span id='success'> Success! Your file was submitted. </span>";
+					}			
+				}
+
+				?>
+			
+			<br>
+			<br>
+				
+			<a href="SiteUpdater.html"> <button> Submit Again </button> </a>	
+				
+			</div>
+			
+			<br>
+			<br>
+			
+			<h4>Revision History*</h4>
+			
+			<table>
+				<tr>
+					<th><b>Version</b></th>
+					<th></td>
+					<th></td>
+					<th class="notes"><b>Notes</b></th>
+				</tr>
+				<tr>
+					<td>Version 3</td>
+					<td>	<a href="../files/site_versions/Sitev3/Title.html">View</a>		</td>
+					<td>	<a href="../files/site_versions/Sitev3.zip">Download</a>		</td>
+					<td class="notes">Added Tiles to Project Page. Created Subfolder for pages on Club's Projects</td>
+				</tr>
+				<tr>
+					<td>Version 2</td>
+					<td>	<a href="../files/site_versions/Sitev2/Title.html">View</a>		</td>
+					<td>	<a href="../files/site_versions/Sitev2.zip">Download</a>		</td>
+					<td class="notes">Added Reference and Project Pages. Refined Standard Page Layout.</td>
+				</tr>
+				<tr>
+					<td>Version 1</td>
+					<td>	<a href="../files/site_versions/Sitev1/Titlev2.html">View</a>		</td>
+					<td>	<a href="../files/site_versions/Sitev1.zip">Download</a>		</td>
+					<td class="notes">Created Basic Layout of Title Page.</td>
+				</tr>
+			</table>
+			
+			<p>*<i>Please note this tool is present but disabled in historical versions of this site to minimize memory usage.</i></p>  
+		</div>
+
+		
+	</body>
+
+</html>
+

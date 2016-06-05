@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>PHP page</h1>
+
+<?php
+function updatePrediction(/*$old_CMA, $nth*/) {
+	//open data file and get contents
+	$data = file_get_contents("http://finance.yahoo.com/webservice/v1/symbols/AAPL/quote?format=json");
+
+	//parse data contents for stock price (11 is length of search term)
+	$start = strpos($data, '"price" : "') + 11;
+	$p_length = strpos($data, '",', $start) - $start;
+
+	//get price from data contents
+	$price = floatval(substr($data, $start, $p_length));
+	
+	//print out price
+	echo "Apple's current stock price is: $".$price;
+	
+	//bring in variables
+	global $CMA, $nth, $shares, $cash;	
+	//calulate current Cumulative Moving Average
+	$CMA = ($price + $nth * $CMA) / ($nth + 1);
+	
+	//print out current CMA
+	echo "<br>"."The current Cumulative Moving Average is: $".$CMA;
+	
+	//Make Move
+	if ($price > $CMA) {
+		echo "<br>"."SELL: 100";
+		$shares = $shares - 100;
+		$cash = $cash + 100 * $price;
+	}
+	elseif ($price < $CMA) {
+		echo "<br>"."BUY:100";
+		$shares = $shares + 100;
+		$cash = $cash - 100 * $price;
+	}
+	else {
+		echo "<br>"."NO ACTION";
+	}
+	
+	//Tally worth
+	$value = $cash + $shares *$price;
+	echo "<br>"."Investment Value is:".$value;
+}
+
+//declare variables
+$CMA = 120;
+$nth= 1;
+$shares= 1000;
+$cash= 1000000;
+
+//run
+updatePrediction();
+
+?>
+
+<br>
+<br>
+<span>
+This material has been prepared as a project exploring the capablities of PHP. It is for information and illustrative purposes only and does not purport to show actual results. It is not, and should not be regarded as investment advice or as a recommendation regarding any particular security or course of action. All investments entail risks.  I do not purport to and do not, in any fashion, provide broker/dealer, consulting or any related services or hold expertise in these areas. You should consult your advisors, brokers, or the U.S. Securities and Exchange Commission with respect to these areas or for more information. I will not carry any any liability for any damages of any kind whatsoever relating to this material. By viewing this material, you acknowledge, understand and accept the foregoing.
+</span>
+
+</body>
+</html> 
+

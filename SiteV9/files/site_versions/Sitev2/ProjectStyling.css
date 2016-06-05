@@ -1,0 +1,70 @@
+/*All lengths are a percent of their container's width (the panel's)*/
+.projectbox {
+	/*Location*/
+	display:inline-block; /*Puts tiles on the same line*/
+	width:37%;
+	padding:1%;
+	
+	margin-top:0%; /*To prevent doubling the margin between rows*/
+	margin-bottom: 2%;
+	
+	/*Style*/
+	background-color:#DADBDF;
+	text-align:center;
+	
+	/*Add stylish border with rounded edges*/
+	border-style:solid;
+	border-color:#9F9F9F;
+	border-width:thin;
+	border-radius: 5%;
+	
+}
+
+.firstproject {
+	margin-left:8%; /*Calculated to center 2 tiles in panel with 6% between them*/
+	margin-right:6%;
+}
+
+img {
+	/*Round corner of image*/
+	border-radius:5%;
+}
+
+/*
+.projectbox {
+	/*Location
+	padding:1%;
+	margin-top: .5%;
+    margin-bottom: .5%;	/*Calculated to center 2 tiles in panel with 8% between them*/ 
+
+	
+	/*Size
+	width:37%;
+	
+	/*Style
+	background-color:#DADBDF;
+	
+	/*Add stylish border with rounded edges
+	border-style:solid;
+	border-color:#9F9F9F;
+	border-width:thin;
+	border-radius: 5%;
+	
+}
+
+#project1 {
+	margin-left:8%; /*Calculated to center 2 tiles in panel with 8% between them
+	margin-right:4%;
+}
+
+#project2 {
+	clear:left;
+	margin-left: 4%; /*4% + 4% = 8%*
+	margin-right: 8%;
+	float:right;
+}
+
+img {
+	/*Round corner of image*
+	border-radius:5%;
+}*/

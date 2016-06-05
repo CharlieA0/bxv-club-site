@@ -1,0 +1,61 @@
+/* To help the site render on different screens, lengths are measured in percent of the screen's width*/
+
+body {
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	background-color:#white;
+}
+
+a {
+	text-decoration:none;
+	color: darkgreen;
+}
+
+header {
+	/*Location*/
+	padding:.5%;
+	
+	/* Style */
+	background-color:#4DBCE9;
+	border-style: solid;
+    border-width: thin;
+	
+	/*Text*/
+	font-size: large;
+	text-align:center;
+}
+
+nav {
+	/*Location*/
+	padding:.5%;
+	margin-top: .5%;
+    margin-bottom: .5%;
+    margin-right: .5%;
+    margin-left: 0;
+	float:left;
+	
+	/*Size*/
+	width: 10%;
+	
+	/*Style*/
+	background-color:#ffffff;
+	border-style: outset;
+    border-width: .2%;
+}
+
+img {
+	/*Center Images by default*/
+	display:block;
+	margin:auto;
+}
+
+#panel {
+	/*Location*/
+    margin-top: .5%;
+    margin-bottom: .5%;
+    margin-right: 2%;
+    margin-left: 13.25%;
+	width:84%;
+	
+	/*Style*/
+	background-color:White;
+}

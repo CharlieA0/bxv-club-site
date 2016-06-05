@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Concept Coding - Charlie Vorbach</title>
+		<link rel="stylesheet" type="text/css" href="newlayoutstyle.css">
+	</head>
+	<body>
+		<!--tile of website-->
+		<div class="header">
+			<h1>Charlie Vorbach Project Site</h2>
+			<hr>
+		</div>
+		
+		<!--Links for various locations-->
+		<div class="nav_panel">
+			<div class="inner_nav">
+				<a href="index.html">Home</a>
+			</div>
+			<div class="inner_nav">
+				<a href="NewAbout.html">About</a>
+			</div>
+			<div class="inner_nav">
+				<a href="NewContactMe.html">Contact Me</a>
+			</div>
+		</div>
+		<!-- Content -->		
+		<div class="factor_info">
+			<h2>A Stock "Trading" Algorithm</h2>
+			<p>This a C program which grabs the price of Apple stock from Yahoo Finance's website and uses simple statistic to decide whether the next prive will be above or below this. Then it watches what would have happened had it purchased/sold the stock.</p>
+			<p>The most effective statistic I have found, and the one included in the source code, is a Exponential Moving Average(EMA). It weighs the latest price at 1/2, the second latest at 1/4, the third at 1/8, the fourth at 1/16, and so on. If the latest price is above the EMA the algorithm "sells", if the price is below the EMA the program "buys". Using this strategy, this algorithm "makes" 70 cents per trade on average.</p>
+			<p>However, there are several reasons this algorithm probably couldn't work in reality. This program assumes infinite liquidity, or that there is always demand at the last sale price. This is not neccessarly the case even with very large volume stocks. Secondly, stock commissions would far out weigh the profits. OptionsHouse charges $4.75 per trade. Over the thousand trade run above, you would spend several times more on </p>
+			<p>Anyway, free to check out the code, download, and make it your own. I am sure there are many other algorithms it could be used to test. And if you find anything really good be sure to let me know.</p>
+			</div>
+			<div>
+				<img src="/pics/StockLogic.png" alt="Sieve of Eratosthenes Animation" style="width:72.6%;height:60%;">
+			<div>			
+		</div>
+
+	</body>	
+</html>

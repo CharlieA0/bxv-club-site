@@ -1,0 +1,62 @@
+/* CSS really is a different language from HTML, to comment text you use a /* and */
+
+/* CSS Code has a particular format
+selector {
+	property:value;
+	property:value;
+	property:value;
+}
+*/
+
+
+#header {
+    background-color:black;
+    color:white; /*All the default colors are at http://www.w3schools.com/html/html_colornames.asp */
+    text-align:center;
+    padding:5px;
+}
+
+/*Here the selector is 'header'
+The '#' indicates it is the id of an element in the HTML document.
+There are three types of selectors, elements (like p, h2, or div), ids (specified by setting id=""), and classes (specified by setting an element's class="")
+*/
+
+a {
+	text-decoration: none; /* This removes the underline from links */
+	color: Black; /* This prevents links from turning blue or purple */
+}
+
+/*Notice here the selector is the element <a>*/
+
+#nav {
+    line-height:30px;
+    background-color:PaleTurquoise ;
+    height:700px; /*px stands for pixels*/
+    width:100px;/*By default "Block" elements like <div> take up a full line, but you can change that with the hieght and width properties*/
+    float:left;
+    padding:5px; /*Adding padding puts a gap between the content and container*/  
+}
+
+#section {
+	height:500;
+    width:800px;
+	float:left;
+    padding:30px;	 	 
+}
+
+/*Here the selector is the class "text_box". Classes are indicated with a '.' */
+.text_box {
+	margin-right:30px;
+	margin-left:30px;
+}
+
+/*Possibly the most important part of CSS is the "box model" of elements that lets you organize them on a page*/
+/*Feel free to read about the box model and other CSS tricks at http://www.w3schools.com/css/css_boxmodel.asp */
+
+#footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px;	 	 
+}

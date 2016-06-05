@@ -1,0 +1,9 @@
+#panel > hr {
+	border: 2px solid LightGrey;
+
+}
+
+span > hr {
+	border: 2px solid Black;
+}
+

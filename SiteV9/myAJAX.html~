@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+
+<html>
+<body>
+
+<div id='output'></div>
+
+<script>
+//check browser
+var xmlhttp;
+if (window.XMLHttpRequest) {
+	// code for IE7+, Firefox, Chrome, Opera, Safari
+	xmlhttp=new XMLHttpRequest();
+}
+else {
+	// code for IE6, IE5
+	xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+}
+
+//send request
+xmlhttp.open("GET","http://finance.yahoo.com/webservice/v1/symbols/AAPL/quote?format=xml",true);
+xmlhttp.send();
+
+//parse XML doc returned
+xmlDoc=xmlhttp.responseXML;
+document.getElementById('output').innerHTML=
+xmlDoc.getElementsByTagName("field")[0].childNodes[0].nodeValue;
+</script>
+
+</body>
+</html>

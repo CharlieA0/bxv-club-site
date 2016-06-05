@@ -1,0 +1,47 @@
+<?php
+function updatePrediction($old_CMA, $nth) {
+	//open data file and get contents
+	$data = file_get_contents("http://finance.yahoo.com/webservice/v1/symbols/AAPL/quote?format=json");
+
+	//parse data contents for stock price (11 is length of search term)
+	$start = strpos($data, '"price" : "') + 11;
+	$p_length = strpos($data, '",', $start) - $start;
+
+	//get price from data contents
+	$price = floatval(substr($data, $start, $p_length));
+	
+	//print out price
+	echo "Apple's current stock price is: $".$price;
+
+	//calulate current Cumulative Moving Average
+	$CMA = ($price + $nth * $old_CMA) / ($nth + 1);
+	
+	//print out current CMA
+	echo "<br>"."The current Cumulative Moving Average is: $".$CMA;
+	
+	//Recomendation
+	if ($price > $CMA) {
+		echo "<br>"."Algorithm says: SELL";
+	}
+	elseif ($price < $CMA) {
+		echo "<br>"."Agorithm says: BUY";
+	}
+	else {
+		echo "<br>"."Algorithm says: NO ACTION";
+	}
+	
+	//Test Return
+	//return $price;
+}
+
+//get old CMA and time run
+$o_CMA=$_REQUEST["o_CMA"];
+$o_nth=$_REQUEST["o_nth"];
+
+//Testing
+echo "<br>".$o_CMA;
+echo "<br>".$o_nth."<br>;
+
+updatePrediction(122, 3);
+
+?>

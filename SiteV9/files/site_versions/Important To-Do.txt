@@ -1,0 +1,3 @@
+The zipped versions of the site (v4, v5, v6) have recursive copies of the site inside them.
+
+They need to be uncompressed, have their /files/site_versions folder deleted, and recompressed.

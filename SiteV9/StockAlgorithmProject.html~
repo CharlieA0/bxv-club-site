@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Concept Coding - Charlie Vorbach</title>
+		<link rel="stylesheet" type="text/css" href="newlayoutstyle.css">
+	</head>
+	<body>
+		<!--tile of website-->
+		<div class="header">
+			<h1>Charlie Vorbach Project Site</h2>
+			<hr>
+		</div>
+		
+		<!--Links for various locations-->
+		<div class="nav_panel">
+			<div class="inner_nav">
+				<a href="index.html">Home</a>
+			</div>
+			<div class="inner_nav">
+				<a href="NewAbout.html">About</a>
+			</div>
+			<div class="inner_nav">
+				<a href="NewContactMe.html">Contact Me</a>
+			</div>
+		</div>
+		
+		<!-- Content -->		
+		<div class="algorithm_info">
+			<div class ="algorithm_util">
+				<span id="stock_price">Testing</span>
+				
+				<a href="#" onclick="return stockAlfgorithm();"> Testing </a>
+				<div id="stock_price">waiting for action</div>
+				
+			<script src="stockAlgorithm.js"></script>
+			</div>			
+		</div>
+
+	</body>	
+</html>
